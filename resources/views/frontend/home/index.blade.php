@@ -58,7 +58,7 @@
 								<div class="grid-arr">
 									<div  class="grid-arrival">
 										<figure>		
-											<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
+											<a href="{{url('/product/details/'.$product->id)}}" class="new-gri">
 												<div class="grid-img">
 													<img  src="{{asset('/product/'.$product->image)}}" class="img-responsive" alt="">
 												</div>
@@ -83,7 +83,7 @@
 									  <input type="hidden" name="product_id" value="{{$product->id}}"/>
 									  <input type="hidden" name="price" value="{{$product->price}}"/>
 									<div class="women">
-										<h6><a href="#">{{$product->name}}</a></h6>
+										<h6><a href="{{url('/product/details/'.$product->id)}}">{{$product->name}}</a></h6>
 										<span class="size">{{$product->size->name}} </span>
 										<p ><em class="item_price">${{$product->price}}</em></p>
 										@if(auth()->check())
@@ -126,7 +126,7 @@
 								<div class="grid-arr">
 									<div  class="grid-arrival">
 										<figure>		
-											<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
+											<a href="{{url('/product/details/'.$product->id)}}" class="new-gri">
 												<div class="grid-img">
 													<img  src="{{asset('/product/'.$product->image)}}" class="img-responsive" alt="">
 												</div>
@@ -146,7 +146,7 @@
 										<div class="starbox small ghosting"> </div>
 									</div>
 									<div class="women">
-										<h6><a href="single.html">{{$product->name}}</a></h6>
+										<h6><a href="{{url('/product/details/'.$product->id)}}">{{$product->name}}</a></h6>
 										<span class="size">{{$product->size->name}} </span>
 										<p ><em class="item_price">${{$product->price}}</em></p>
 										<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
@@ -246,7 +246,7 @@
 								<div class="grid-arr">
 									<div  class="grid-arrival">
 										<figure>		
-											<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
+											<a href="{{url('/product/details/'.$product->id)}}" class="new-gri">
 												<div class="grid-img">
 													<img  src="{{asset('/product/'.$product->image)}}" class="img-responsive" alt="">
 												</div>
@@ -266,7 +266,7 @@
 										<div class="starbox small ghosting"> </div>
 									</div>
 									<div class="women">
-										<h6><a href="single.html">{{$product->name}}</a></h6>
+										<h6><a href="{{url('/product/details/'.$product->id)}}">{{$product->name}}</a></h6>
 										<span class="size">{{$product->size->name}} </span>
 										<p ><em class="item_price">${{$product->price}}</em></p>
 										<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>

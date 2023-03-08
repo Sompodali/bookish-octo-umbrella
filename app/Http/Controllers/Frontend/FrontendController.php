@@ -25,5 +25,10 @@ class FrontendController extends Controller
     {
         return view('frontend.user.login');
     }
+    public function productDetails($id)
+    {
+        $product = Product::find($id);
+        return view('frontend.home.productdetail',compact('product'));
+    }
 
 }

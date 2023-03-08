@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\Product;
 use App\Models\Order;
 use App\Models\Orderdete;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class CartController extends Controller
         $addTOCart->vendor_id = $request->vendor_id;
         $addTOCart->product_id =$request->product_id;
         $addTOCart->price =$request->price;
-        $addTOCart->qty = 1;
+        $addTOCart->qty = $request->qty ?$request->qty :1;
         $addTOCart->total_price =1*$request->price;
         $addTOCart->save();
      }
@@ -51,9 +52,13 @@ class CartController extends Controller
                $orderDetails->email = $request->email;
                $orderDetails->phone = $request->phone;
                $orderDetails->address = $request->address;
-               $orderDetails->save();
-               
+               $orderDetails->save(); 
+
           } 
+
+           $product = Product::where('id',$order->product_id)->first();
+           $product->qty = $product->qty - $request->total_qty;
+           $product->save();
 
           $cartEmpty = Cart::where('user_id',auth()->user()->id)->get();
           foreach($cartEmpty as $cart){
